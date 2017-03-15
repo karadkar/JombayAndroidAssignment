@@ -1,15 +1,22 @@
 package io.github.karadkar.jombaytest;
 
+import io.realm.Realm;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by rnztx on 15/3/17.
  */
 
-public class Photo {
-    int albumId;
-    int id;
-    String title;
-    String url;
-    String thumbnailUrl;
+public class Photo extends RealmObject{
+
+    @PrimaryKey
+    private int id;
+
+    private int albumId;
+    private String title;
+    private String url;
+    private String thumbnailUrl;
 
     public int getAlbumId() {
         return albumId;

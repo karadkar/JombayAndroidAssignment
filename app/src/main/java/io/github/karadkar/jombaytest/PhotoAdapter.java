@@ -58,6 +58,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder>{
     }
 
     public void addPhotos(List<Photo> photos){
+        mPhotos.clear();
         mPhotos.addAll(photos);
         notifyDataSetChanged();
     }
