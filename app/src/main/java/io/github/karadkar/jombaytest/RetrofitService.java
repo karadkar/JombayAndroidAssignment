@@ -9,15 +9,27 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetrofitService {
-    private static final String BASE_URL = "https://es-q.co/sample_api/";
-    private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+    private static RetrofitService instance;
 
-    private static Retrofit.Builder builder =
+    public static RetrofitService getInstance(){
+        if(instance==null)
+            instance = new RetrofitService();
+
+        return instance;
+    }
+    private RetrofitService(){}
+
+    private final String BASE_URL = "https://es-q.co/sample_api/";
+
+    private OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+
+    private Retrofit.Builder builder =
             new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create());
 
-    public static <S> S createService(Class<S> serviceClass) {
+    public <S> S createService(Class<S> serviceClass) {
+
         Retrofit retrofit = builder.client(httpClient.build()).build();
         return retrofit.create(serviceClass);
     }
