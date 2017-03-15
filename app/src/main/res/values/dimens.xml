@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="photo_item_image_size">150dp</dimen>
-    <dimen name="photo_item_height">170dp</dimen>
-    <dimen name="photo_item_width">150dp</dimen>
+    <dimen name="cardView_elevation">4dp</dimen>
+    <dimen name="photo_item_title_horizontal_margin">4dp</dimen>
+    <integer name="photo_item_title_maxLines">2</integer>
 </resources>

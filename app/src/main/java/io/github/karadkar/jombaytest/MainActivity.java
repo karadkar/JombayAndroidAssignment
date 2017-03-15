@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements Callback<List<Pho
     RecyclerView.LayoutManager mLayoutManager;
     PhotoAdapter mAdapter;
     RealmResults<Photo> mRealmPhotoResults;
+    final static int SPAN_COUNT = 3;
     RealmChangeListener<RealmResults<Photo>> mRealmListener = new RealmChangeListener<RealmResults<Photo>>() {
         @Override
         public void onChange(RealmResults<Photo> results) {
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements Callback<List<Pho
         mRecyclerView = (RecyclerView) findViewById(R.id.act_main_recyclerView);
 
         // todo: remove hardcoded value
-        mLayoutManager = new GridLayoutManager(getApplicationContext(),2);
+        mLayoutManager = new GridLayoutManager(getApplicationContext(),SPAN_COUNT);
         mAdapter = new PhotoAdapter(getApplicationContext());
 
         mRecyclerView.setLayoutManager(mLayoutManager);
